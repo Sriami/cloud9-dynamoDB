@@ -1,0 +1,41 @@
+// ************* CHECK LIST OF AVAILABLE TABLES ***********
+dynamodb list-tables
+
+// *****  CREATE TABLE *****
+      dynamodb create-table --table-name Music \
+      --attribute-definitions AttributeName=AlbumID,AttributeType=N AttributeName=ReleaseDate,AttributeType=S \
+      --key-schema AttributeName=AlbumID,KeyType=HASH AttributeName=ReleaseDate,KeyType=RANGE\
+      --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+
+      dynamodb create-table --table-name Music --attribute-definitions AttributeName=AlbumID,AttributeType=N AttributeName=ReleaseDate,AttributeType=S --key-schema AttributeName=AlbumID,KeyType=HASH AttributeName=ReleaseDate,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+
+// ****** VERIFY TABLE WAS CREATED *****
+      dynamodb describe-table --table-name Music
+
+// ***** ADD A SINGLE ITEM TO THE MUSIC TABLE *****
+{
+  "AlbumID": { "N": "1001" },
+  "AlbumName": { "S": "Twenty-One" },
+  "Artist": { "S": "Adele" },
+  "ReleaseDate": { "S": "2011-01-24" }
+}
+
+ dynamodb put-item  --table-name Music  --item file://music-add-single-item.json
+
+// ***** ADD BULK ITEM TO THE MUSIC TABLE *****
+ dynamodb batch-write-item --request-items file://music-add-bulk-items.json
+
+
+// ******** GET A SINGLE ITEM FROM THE MUSIC TABLE ******
+ dynamodb get-item 
+--table-name Music 
+--key '{ "AlbumID": { "N": "1001" }, "ReleaseDate": { "S": "2011-01-24" } }'
+
+dynamodb get-item --table-name Music --key '{ "AlbumID": { "N": "1001" }, "ReleaseDate": { "S": "2011-01-24" } }'
+
+// ******** GET ITEMS IN A BATCH FROM THE MUSIC TABLE ******
+ dynamodb batch-get-item --request-items file://music-get-batch-items.json
+
+
+// ************ DELETE TABLE ****************
+  dynamodb delete-table --table-name Music
