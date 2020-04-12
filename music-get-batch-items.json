@@ -1,0 +1,15 @@
+{
+  "Music": {
+    "Keys": [
+      {
+        "AlbumID": { "N": "1039" },
+        "ReleaseDate": { "S": "1982-11-30" }
+      },
+      {
+        "AlbumID": { "N": "1281" },
+        "ReleaseDate": { "S": "1976-01-10" }
+      }
+    ],
+    "ProjectionExpression": "Artist, AlbumName"
+  }
+}
