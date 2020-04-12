@@ -1,0 +1,6 @@
+{
+  "AlbumID": { "N": "1" },
+  "AlbumName": { "S": "Twenty-One" },
+  "Artist": { "S": "Adele" },
+  "ReleaseDate": { "S": "2011-01-24" }
+}
