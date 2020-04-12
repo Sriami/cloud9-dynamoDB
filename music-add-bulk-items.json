@@ -1,0 +1,34 @@
+{
+  "Music": [
+    {
+      "PutRequest": {
+        "Item": {
+          "AlbumID": { "N": "1039" },
+          "AlbumName": { "S": "Thriller" },
+          "Artist": { "S": "Michael Jackson" },
+          "ReleaseDate": { "S": "1982-11-30" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "AlbumID": { "N": "1281" },
+          "AlbumName": { "S": "Hotel California" },
+          "Artist": { "S": "Eagles" },
+          "ReleaseDate": { "S": "1976-01-10" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "AlbumID": { "N": "10271" },
+          "AlbumName": { "S": "Master of Puppets" },
+          "Artist": { "S": "Metallic" },
+          "ReleaseDate": { "S": "1986-01-10" }
+        }
+      }
+    }
+  ]
+}
